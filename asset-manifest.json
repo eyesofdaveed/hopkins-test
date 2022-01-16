@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hopkins-test/static/css/main.46ed2350.css",
+    "main.js": "/hopkins-test/static/js/main.6b5315eb.js",
+    "index.html": "/hopkins-test/index.html",
+    "main.46ed2350.css.map": "/hopkins-test/static/css/main.46ed2350.css.map",
+    "main.6b5315eb.js.map": "/hopkins-test/static/js/main.6b5315eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46ed2350.css",
+    "static/js/main.6b5315eb.js"
+  ]
+}
