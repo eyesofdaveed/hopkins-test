@@ -1,0 +1,6 @@
+export const SEARCH_QUERY = "SEARCH_QUERY"
+export const FETCH_DATA = "FETCH_DATA"
+export const REQUEST_DATA = "REQUEST_DATA"
+export const SHOW_LOADER = "SHOW_LOADER"
+export const HIDE_LOADER = "HIDE_LOADER"
+export const PAGE_NUMBER = "PAGE_NUMBER"
