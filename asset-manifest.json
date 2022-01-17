@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/hopkins-test/static/css/main.df2eabbb.css",
-    "main.js": "/hopkins-test/static/js/main.2296f31e.js",
+    "main.js": "/hopkins-test/static/js/main.ff87094b.js",
     "index.html": "/hopkins-test/index.html",
     "main.df2eabbb.css.map": "/hopkins-test/static/css/main.df2eabbb.css.map",
-    "main.2296f31e.js.map": "/hopkins-test/static/js/main.2296f31e.js.map"
+    "main.ff87094b.js.map": "/hopkins-test/static/js/main.ff87094b.js.map"
   },
   "entrypoints": [
     "static/css/main.df2eabbb.css",
-    "static/js/main.2296f31e.js"
+    "static/js/main.ff87094b.js"
   ]
 }
