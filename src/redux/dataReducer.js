@@ -13,7 +13,7 @@ export const dataReducer = (state = initialState, action) => {
         case PAGE_NUMBER:
             return { ...state, pageNumber: action.payload }
         case SEARCH_QUERY:
-            return { ...state, searchQuery: action.payload }
+            return { ...state, searchQuery: action.payload, pageNumber: 1 }
         default: return state
     }
 }

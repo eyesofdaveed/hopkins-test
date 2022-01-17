@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../redux/actions";
+import React from "react";
+import { useSelector } from "react-redux";
 import { selectLaureates, selectLoading } from "../redux/selectors";
 
 import { Table } from "antd";
@@ -8,13 +7,6 @@ import { Table } from "antd";
 const { Column } = Table;
 
 const DataTable = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchData());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const data = useSelector(selectLaureates);
   const loading = useSelector(selectLoading);
 
