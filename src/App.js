@@ -1,14 +1,15 @@
 import React from "react";
 
-import "antd/dist/antd.css";
+import { Search, DataTable, Paginator } from "./components";
 
-import { Search, DataTable } from "./components";
+import "antd/dist/antd.css";
 
 function App() {
   return (
     <div style={container}>
       <Search />
       <DataTable />
+      <Paginator />
     </div>
   );
 }

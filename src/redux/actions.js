@@ -3,7 +3,7 @@ import { SEARCH_QUERY, REQUEST_DATA, SHOW_LOADER, HIDE_LOADER, PAGE_NUMBER } fro
 export function searchQuery(searchParam) {
     return {
         type: SEARCH_QUERY,
-        param: searchParam
+        payload: searchParam
     }
 }
 

@@ -1,21 +1,10 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
-import { FETCH_DATA, REQUEST_DATA, SEARCH_QUERY } from './types'
+import { FETCH_DATA, REQUEST_DATA } from './types'
 import { hideLoader, showLoader } from './actions'
+import { store } from '..'
 
 export function* sagaWatcher() {
-  yield takeEvery(REQUEST_DATA, fetchInitialData)
-  yield takeEvery(SEARCH_QUERY, fetchSearchData)
-}
-
-function* fetchInitialData() {
-  try {
-    yield put(showLoader())
-    const payload = yield call(fetchData)
-    yield put({ type: FETCH_DATA, payload })
-    yield put(hideLoader())
-  } catch (e) {
-    yield put(hideLoader())
-  }
+  yield takeEvery(REQUEST_DATA, fetchSearchData)
 }
 
 function* fetchSearchData(action) {
@@ -29,7 +18,10 @@ function* fetchSearchData(action) {
   }
 }
 
-async function fetchData(param = "") {
-  const response = await fetch(`https://api.nobelprize.org/2.1/laureates${param && "?name="}` + param)
+async function fetchData() {
+  const param = store.getState().data.searchQuery;
+  const searchQuery = param && `name=${param}`
+  const offsetCount = `offset=${(store.getState().data.pageNumber - 1) * 10}`
+  const response = await fetch(`https://api.nobelprize.org/2.1/laureates?limit=10&${offsetCount}&${searchQuery}`)
   return await response.json()
 }

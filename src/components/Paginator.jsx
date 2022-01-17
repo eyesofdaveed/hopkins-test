@@ -1,28 +1,36 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { pageNumber } from "../redux/actions";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { pageNumber, fetchData } from "../redux/actions";
+import { selectPageNumber, selectTotalCount } from "../redux/selectors";
 
 import { Pagination } from "antd";
 
-import "./paginator.css"
+import "./paginator.css";
 
-const MAX_ITEM_COUNT = 10;
+const MAX_DATA_COUNT = 10;
 
 const Paginator = () => {
   const dispatch = useDispatch();
-  const currentPageNumber = useSelector((state) => state.data.pageNumber);
 
   const handlePageChange = (page) => {
-    console.log("changed");
     dispatch(pageNumber(page));
+    dispatch(fetchData());
   };
+
+  useEffect(() => {
+    dispatch(fetchData());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const currentPageNumber = useSelector(selectPageNumber);
+  const totalCount = useSelector(selectTotalCount);
 
   return (
     <Pagination
+      pageSize={MAX_DATA_COUNT}
       showSizeChanger={false}
       defaultCurrent={1}
-      pageSize={MAX_ITEM_COUNT}
+      total={totalCount}
       current={currentPageNumber}
       onChange={handlePageChange}
     />

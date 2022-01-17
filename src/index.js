@@ -3,21 +3,17 @@ import { render } from 'react-dom';
 
 import { compose, createStore, applyMiddleware } from 'redux'
 import { rootReducer } from './redux/rootReducer'
-import thunk from "redux-thunk"
 import { Provider } from 'react-redux'
 import createSagaMiddleware from "redux-saga"
-import { sagaWatcher } from  "./redux/sagas"
+import { sagaWatcher } from "./redux/sagas"
 
 import App from './App';
-
 import * as serviceWorker from './serviceWorker';
 
 const saga = createSagaMiddleware()
 
-const store = createStore(rootReducer, compose(
-  applyMiddleware(
-    thunk, saga
-  ),
+export const store = createStore(rootReducer, compose(
+  applyMiddleware(saga),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
 
